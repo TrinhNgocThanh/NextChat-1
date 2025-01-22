@@ -12,7 +12,7 @@ const RAW_EN_URL = "f/awesome-chatgpt-prompts/main/prompts.csv";
 const EN_URL = MIRRORF_FILE_URL + RAW_EN_URL;
 const FILE = "./public/prompts.json";
 
-const ignoreWords = ["涩涩", "魅魔", "澀澀"];
+const ignoreWords = ["sexy", "succubus", "erotic"];
 
 const timeoutPromise = (timeout) => {
   return new Promise((resolve, reject) => {
@@ -23,7 +23,7 @@ const timeoutPromise = (timeout) => {
 };
 
 async function fetchCN() {
-  console.log("[Fetch] fetching cn prompts...");
+  console.log("[Fetch] fetching vi prompts...");
   try {
     const response = await Promise.race([fetch(CN_URL), timeoutPromise(5000)]);
     const raw = await response.json();
@@ -36,7 +36,7 @@ async function fetchCN() {
           ignoreWords.every((w) => !v[0].includes(w) && !v[1].includes(w)),
       );
   } catch (error) {
-    console.error("[Fetch] failed to fetch cn prompts", error);
+    console.error("[Fetch] failed to fetch vi prompts", error);
     return [];
   }
 }
@@ -82,13 +82,13 @@ async function fetchEN() {
 }
 
 async function main() {
-  Promise.all([fetchCN(), fetchTW(), fetchEN()])
-    .then(([cn, tw, en]) => {
-      fs.writeFile(FILE, JSON.stringify({ cn, tw, en }));
+  Promise.all([fetchCN(), fetchEN()])
+    .then(([vi, en]) => {
+      fs.writeFile(FILE, JSON.stringify({ vi, en }));
     })
     .catch((e) => {
       console.error("[Fetch] failed to fetch prompts");
-      fs.writeFile(FILE, JSON.stringify({ cn: [], tw: [], en: [] }));
+      fs.writeFile(FILE, JSON.stringify({ vi: [], en: [] }));
     })
     .finally(() => {
       console.log("[Fetch] saved to " + FILE);

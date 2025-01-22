@@ -26,7 +26,7 @@ export type { LocaleType, PartialLocaleType } from "./cn";
 const localStorage = safeLocalStorage();
 
 const ALL_LANGS = {
-  cn,
+  vi,
   en,
   tw,
   pt,
@@ -38,7 +38,7 @@ const ALL_LANGS = {
   it,
   tr,
   de,
-  vi,
+  cn,
   ru,
   cs,
   no,
@@ -137,9 +137,10 @@ export function getISOLang() {
 
 const DEFAULT_STT_LANG = "zh-CN";
 export const STT_LANG_MAP: Record<Lang, string> = {
-  cn: "zh-CN",
+  vi: "vi-VN",
   en: "en-US",
   pt: "pt-BR",
+  cn: "zh-CN",
   tw: "zh-TW",
   jp: "ja-JP",
   ko: "ko-KR",
@@ -149,7 +150,7 @@ export const STT_LANG_MAP: Record<Lang, string> = {
   it: "it-IT",
   tr: "tr-TR",
   de: "de-DE",
-  vi: "vi-VN",
+
   ru: "ru-RU",
   cs: "cs-CZ",
   no: "no-NO",
