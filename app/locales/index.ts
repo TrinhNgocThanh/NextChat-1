@@ -52,11 +52,11 @@ export type Lang = keyof typeof ALL_LANGS;
 export const AllLangs = Object.keys(ALL_LANGS) as Lang[];
 
 export const ALL_LANG_OPTIONS: Record<Lang, string> = {
-  cn: "简体中文",
+  vi: "Tiếng Việt",
   en: "English",
-  pt: "Português",
-  tw: "繁體中文",
   jp: "日本語",
+  cn: "简体中文",
+  tw: "繁體中文",
   ko: "한국어",
   id: "Indonesia",
   fr: "Français",
@@ -64,7 +64,7 @@ export const ALL_LANG_OPTIONS: Record<Lang, string> = {
   it: "Italiano",
   tr: "Türkçe",
   de: "Deutsch",
-  vi: "Tiếng Việt",
+  pt: "Português",
   ru: "Русский",
   cs: "Čeština",
   no: "Nynorsk",
